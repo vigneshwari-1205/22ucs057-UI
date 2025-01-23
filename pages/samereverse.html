@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check if Two Strings are Same After Reversing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Check if Two Strings are Same After Reversing</h1>
+
+  <label for="inputString1">Enter first string:</label>
+  <input type="text" id="inputString1" placeholder="First string...">
+  <br>
+
+  <label for="inputString2">Enter second string:</label>
+  <input type="text" id="inputString2" placeholder="Second string...">
+  <br><br>
+
+  <button onclick="checkIfSameAfterReverse()">Check</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkIfSameAfterReverse() {
+      // Get the input values
+      const input1 = document.getElementById('inputString1').value.trim();
+      const input2 = document.getElementById('inputString2').value.trim();
+
+      // Reverse both strings
+      const reversed1 = input1.split('').reverse().join('');
+      const reversed2 = input2.split('').reverse().join('');
+
+      // Check if the reversed strings are the same
+      if (reversed1 === reversed2) {
+        document.getElementById('result').innerText = `Yes, the reversed strings are the same!`;
+      } else {
+        document.getElementById('result').innerText = `No, the reversed strings are not the same.`;
+      }
+    }
+  </script>
+</body>
+</html>
+
+</body>
+</html>

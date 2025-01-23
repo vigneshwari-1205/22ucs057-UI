@@ -1,0 +1,283 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>User Information</h2>
+
+    <h3>Users Data (JSON Table):</h3>
+    <table id="usersTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!Rows will be dynamically inserted here -->
+        <!-- </tbody>
+    </table>
+
+    <script>
+        // Define an array of user objects with keys and values
+        const usersDatabase = [
+            {
+                "name": "vigneshwari.k",
+                "email": "vignesh@gmail.com",
+                "phone": "8825617922",
+                "location": "coimbatore"
+            },
+            {
+                "name": "chitra.k",
+                "email": "chitra5@gmail.com",
+                "phone": "9894313587",
+                "location": "theni"
+            },
+            {
+                "name": "harish.v",
+                "email": "harish46@gmail.com",
+                "phone": "1122334455",
+                "location": "chennai"
+            },
+            {
+                "name": "chitra.k",
+                "email": "chitra.k2@gmail.com",
+                "phone": "9487734672",
+                "location": "erode"
+            }
+        ];
+
+        // Function to display users in the table
+        function displayUsersTable() {
+            const tableBody = document.getElementById('usersTable').getElementsByTagName('tbody')[0];
+
+            // names sorted in ascending
+
+            // const sortedUsers = usersDatabase.sort((a, b) => {
+            // const nameComparison = a.name.localeCompare(b.name);
+            // if (nameComparison === 0) {
+            //    return a.location.localeCompare(b.location);
+            //  }
+            //   return nameComparison;
+            //  });
+
+            //names sorted in descending order
+
+            const sortedUsers = usersDatabase.sort((a, b) => {
+             const nameComparison = b.name.localeCompare(a.name); // Descending name sort
+             if (nameComparison === 0) {
+                  return b.location.localeCompare(a.location); // Descending location sort
+              }
+             return nameComparison;
+             });
+
+
+
+            // Clear any existing rows
+            tableBody.innerHTML = '';
+
+            // Loop through usersDatabase and create a table row for each user
+            usersDatabase.forEach(user => {
+                const row = tableBody.insertRow();
+
+                // Insert table cells for each key in the user object
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+                const cell4 = row.insertCell(3);
+
+                cell1.textContent = user.name;
+                cell2.textContent = user.email;
+                cell3.textContent = user.phone;
+                cell4.textContent = user.location;
+            });
+        }
+
+         // Function to filter data based on user input
+         function filterData() {
+            const nameFilter = document.getElementById('nameFilter').value.toLowerCase();
+            const locationFilter = document.getElementById('locationFilter').value.toLowerCase();
+
+            // Filter the data by name and location
+            const filteredData = usersDatabase.filter(user => {
+                const isNameMatch = user.name.toLowerCase().includes(nameFilter);
+                const isLocationMatch = user.location.toLowerCase().includes(locationFilter);
+                return isNameMatch && isLocationMatch; // Both filters must match
+            });
+
+            // Display the filtered and sorted data
+            displayUsersTable(filteredData);
+        }
+
+        // Display the table when the page loads (without filters)
+        window.onload = () => displayUsersTable(usersDatabase);
+
+        // Display the table when the page loads
+        // window.onload = displayUsersTable;
+    </script>
+
+</body>
+</html>  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        .filters {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>User Information Table with Filters</h2>
+
+    <div class="filters">
+        <label for="nameFilter">Filter by Name: </label>
+        <input type="text" id="nameFilter" placeholder="Search by name" oninput="filterData()">
+
+        <label for="locationFilter">Filter by Location: </label>
+        <input type="text" id="locationFilter" placeholder="Search by location" oninput="filterData()">
+    </div>
+
+    <h3>Users Data (JSON Table):</h3>
+    <table id="usersTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Define an array of user objects with keys and values
+        const usersDatabase = [
+            {
+                "name": "John.L",
+                "email": "john.doe@example.com",
+                "phone": "6542199381",
+                "location": "Kodaikanal"
+            },
+            {
+                "name": "harish.T",
+                "email": "harish.r2@example.com",
+                "phone": "0987654321",
+                "location": "Madhurai"
+            },
+            {
+                "name": "Chitra.K",
+                "email": "chitra6@example.com",
+                "phone": "644588342",
+                "location": "Chennai"
+            },
+            {
+                "name": "Vigneshwari.R",
+                "email": "vignesh2@example.com",
+                "phone": "4455667788",
+                "location": "Coimbatore"
+            },
+            {
+                "name": "Chitra.K",
+                "email": "chitra98@example.com",
+                "phone": "9876543210",
+                "location": "Theni"
+            }
+        ];
+
+        // Function to display users in the table
+        function displayUsersTable(filteredData) {
+            const tableBody = document.getElementById('usersTable').getElementsByTagName('tbody')[0];
+
+            // Sort the filteredData array by name in descending order, and then by location in descending order
+            const sortedUsers = filteredData.sort((a, b) => {
+                const nameComparison = b.name.localeCompare(a.name); // Descending name sort
+                if (nameComparison === 0) {
+                    return b.location.localeCompare(a.location); // Descending location sort
+                }
+                return nameComparison;
+            });
+
+            // Clear any existing rows
+            tableBody.innerHTML = '';
+
+            // Loop through the sorted and filtered usersDatabase and create a table row for each user
+            sortedUsers.forEach(user => {
+                const row = tableBody.insertRow();
+
+                // Insert table cells for each key in the user object
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+                const cell4 = row.insertCell(3);
+
+                cell1.textContent = user.name;
+                cell2.textContent = user.email;
+                cell3.textContent = user.phone;
+                cell4.textContent = user.location;
+            });
+        }
+
+        // Function to filter data based on user input
+        function filterData() {
+            const nameFilter = document.getElementById('nameFilter').value.toLowerCase();
+            const locationFilter = document.getElementById('locationFilter').value.toLowerCase();
+
+            // Filter the data by name and location
+            const filteredData = usersDatabase.filter(user => {
+                const isNameMatch = user.name.toLowerCase().includes(nameFilter);
+                const isLocationMatch = user.location.toLowerCase().includes(locationFilter);
+                return isNameMatch && isLocationMatch; // Both filters must match
+            });
+
+            // Display the filtered and sorted data
+            displayUsersTable(filteredData);
+        }
+
+        // Display the table when the page loads (without filters)
+        window.onload = () => displayUsersTable(usersDatabase);
+    </script>
+
+</body>
+</html>

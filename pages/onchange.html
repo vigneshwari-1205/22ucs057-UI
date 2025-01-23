@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Text Update</title>
+</head>
+<body>
+    <h1>Live Paragraph Update</h1>
+    <label for="inputText">Type your sentence:</label>
+    <input type="text" id="data" onchage="getdata()" max="1-9-2025">
+    <p id="out"></p>
+
+    <script>
+        function getdata(){
+            alert("hi")
+            let e= document.getElementById('data').value;
+            document.getElementById('out').innerHTML=e
+
+        }
+        
+    </script>
+</body>
+</html>

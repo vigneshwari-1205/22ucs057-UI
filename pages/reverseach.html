@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="data">
+    <p id="out"></p>
+    <button onclick="reverseWord()">Reverse Word</button>
+    <button onclick="reverseEachWord()">Reverse Each Word</button>
+    <script>
+        function reverseWord()
+        {
+            let val=document.getElementById("data").value 
+            let result=val.split('').reverse().join() 
+            console.log(result);
+            document.getElementById('out').innerHTML=result
+
+        }
+        function reverseEachWord()
+        {
+            let val=document.getElementById("data").value 
+            let result=val.split('').reverse().join() 
+            console.log(result);
+            document.getElementById('out').innerHTML=result
+
+        }
+
+    </script>
+</body>
+</html>

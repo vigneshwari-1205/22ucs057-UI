@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anagram Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Check if Two Strings are Anagrams</h1>
+
+  <label for="inputString1">Enter first string:</label>
+  <input type="text" id="inputString1" placeholder="First string...">
+  <br>
+
+  <label for="inputString2">Enter second string:</label>
+  <input type="text" id="inputString2" placeholder="Second string...">
+  <br><br>
+
+  <button onclick="checkAnagram()">Check Anagram</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkAnagram() {
+      // Get input values and trim spaces
+      const str1 = document.getElementById('inputString1').value.trim();
+      const str2 = document.getElementById('inputString2').value.trim();
+
+      // Check if lengths are the same
+      if (str1.length !== str2.length) {
+        document.getElementById('result').innerText = "No, the strings are not anagrams (different lengths).";
+        return;
+      }
+
+      // Sort both strings and compare them
+      const sortedStr1 = str1.split('').sort().join('');
+      const sortedStr2 = str2.split('').sort().join('');
+
+      // Compare sorted strings
+      if (sortedStr1 === sortedStr2) {
+        document.getElementById('result').innerText = "Yes, the strings are anagrams!";
+      } else {
+        document.getElementById('result').innerText = "No, the strings are not anagrams.";
+      }
+    }
+  </script>
+</body>
+</html>

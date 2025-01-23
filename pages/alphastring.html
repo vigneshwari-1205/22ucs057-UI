@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Alphabetical Characters</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Check if String Contains Only Alphabetical Characters</h1>
+
+  <label for="inputString">Enter a string:</label>
+  <input type="text" id="inputString" placeholder="Type your string here..." style="width: 300px;">
+  <br><br>
+
+  <button onclick="checkAlphabetical()">Check</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkAlphabetical() {
+      // Get the input string
+      const inputString = document.getElementById('inputString').value.trim();
+
+      // Check if the string contains only alphabetical characters
+      const isAlphabetical = /^[A-Za-z]+$/.test(inputString);
+
+      // Display the result
+      if (isAlphabetical) {
+        document.getElementById('result').innerText = "Yes, the string contains only alphabetical characters.";
+      } else {
+        document.getElementById('result').innerText = "No, the string contains characters other than letters.";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Replace Multiple Characters in String</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Replace Multiple Characters in String</h1>
+
+  <label for="inputString">Enter a string:</label>
+  <input type="text" id="inputString" placeholder="Type your string here..." style="width: 300px;">
+  <br>
+
+  <label for="replaceChars">Characters to replace (comma separated):</label>
+  <input type="text" id="replaceChars" placeholder="e.g., a,e,i" style="width: 200px;">
+  <br>
+
+  <label for="replaceWith">Replace with (comma separated):</label>
+  <input type="text" id="replaceWith" placeholder="e.g., 1,2,3" style="width: 200px;">
+  <br><br>
+
+  <button onclick="replaceMultipleCharacters()">Replace</button>
+
+  <div id="result"></div>
+
+  <script>
+    function replaceMultipleCharacters() {
+      // Get the input values
+      const inputString = document.getElementById('inputString').value.trim();
+      const replaceChars = document.getElementById('replaceChars').value.trim().split(',');
+      const replaceWith = document.getElementById('replaceWith').value.trim().split(',');
+
+      // Validate the input arrays
+      if (replaceChars.length !== replaceWith.length) {
+        document.getElementById('result').innerText = "Error: Number of characters to replace must match the number of replacement characters.";
+        return;
+      }
+
+      // Replace characters in the input string
+      let resultString = inputString;
+      for (let i = 0; i < replaceChars.length; i++) {
+        const regex = new RegExp(replaceChars[i], 'g');  // Create global regex for each character
+        resultString = resultString.replace(regex, replaceWith[i]); // Replace all instances of the character
+      }
+
+      // Display the result
+      document.getElementById('result').innerText = `Updated String: "${resultString}"`;
+    }
+  </script>
+</body>
+</html>

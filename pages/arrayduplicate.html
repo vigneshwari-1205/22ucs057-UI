@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remove Duplicates</title>
+</head>
+<body>
+  <h1>Remove Duplicates from an Array</h1>
+
+  <!-- Input field to enter array values -->
+  <label for="inputArray">Array (comma-separated):</label>
+  <input type="text" id="inputArray" placeholder="e.g., 1, 2, 2, 3, 4, 4, 5">
+  <br><br>
+
+  <!-- Button to trigger duplicate removal -->
+  <button onclick="removeDuplicates()">Remove Duplicates</button>
+
+  <!-- Display the result -->
+  <h2>Unique Values:</h2>
+  <p id="result"></p>
+
+  <script>
+    function removeDuplicates() {
+      // Get the input array from the text box
+      const inputArray = document.getElementById('inputArray').value
+        .split(',')
+        .map(item => item.trim());
+
+      // Use a Set to remove duplicates and convert back to an array
+      const uniqueArray = [...new Set(inputArray)];
+
+      // Display the unique array in the result paragraph
+      document.getElementById('result').innerText = `Unique Array: [${uniqueArray.join(', ')}]`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sort Array and Find Center Value</title>
+</head>
+<body>
+  <h1>Sort Array and Find Center Value</h1>
+
+  <!-- Input field for the array -->
+  <label for="inputArray">Array (comma-separated):</label>
+  <input type="text" id="inputArray" placeholder="e.g., 7, 2, 9, 4, 1">
+  <br><br>
+
+  <!-- Button to trigger the operation -->
+  <button onclick="sortAndFindCenter()">Find Center Value</button>
+
+  <!-- Display the result -->
+  <h2>Sorted Array and Center Value:</h2>
+  <p id="result"></p>
+
+  <script>
+    function sortAndFindCenter() {
+      // Get the input array from the text box
+      const inputArray = document.getElementById('inputArray').value
+        .split(',')
+        .map(item => parseFloat(item.trim()))
+        .filter(item => !isNaN(item)); // Ensure only valid numbers are processed
+
+      // Sort the array in ascending order
+      const sortedArray = inputArray.sort((a, b) => a - b);
+
+      // Find the center value
+      let centerValue;
+      const midIndex = Math.floor(sortedArray.length / 2);
+      if (sortedArray.length % 2 === 0) {
+        // Average of two middle values for even-length arrays
+        centerValue = (sortedArray[midIndex - 1] + sortedArray[midIndex]) / 2;
+      } else {
+        // Single middle value for odd-length arrays
+        centerValue = sortedArray[midIndex];
+      }
+
+      // Display the result
+      document.getElementById('result').innerText = `Sorted Array: [${sortedArray.join(', ')}], Center Value: ${centerValue}`;
+    }
+  </script>
+</body>
+</html>

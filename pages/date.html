@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date After 15 Days</title>
+</head>
+<body>
+    <h1>Find the Date After 15 Days</h1>
+    <label for="datePicker">Select a date:</label>
+    <input type="date" id="datePicker">
+    <p id="result">The date after 15 days will appear here...</p>
+
+    <script>
+        // Get the input and output elements
+        const datePicker = document.getElementById('datePicker');
+        const resultParagraph = document.getElementById('result');
+
+        // Add an onchange event listener to the date picker
+        datePicker.addEventListener('change', function() {
+            // Get the selected date from the date picker
+            const selectedDate = new Date(datePicker.value);
+
+            // Add 15 days to the selected date
+            selectedDate.setDate(selectedDate.getDate() + 15);
+
+            // Format the new date as a readable string
+            const formattedDate = selectedDate.toDateString();
+
+            // Display the result
+            resultParagraph.textContent = `The date after 15 days is: ${formattedDate}`;
+        });
+    </script>
+</body>
+</html>

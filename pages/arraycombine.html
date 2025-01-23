@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combine Arrays</title>
+</head>
+<body>
+  <h1>Combine Two Arrays</h1>
+
+  <label for="array1">Array 1 (comma-separated):</label>
+  <input type="text" id="array1" placeholder="e.g., 1,2,3">
+  <br><br>
+
+  <label for="array2">Array 2 (comma-separated):</label>
+  <input type="text" id="array2" placeholder="e.g., 4,5,6">
+  <br><br>
+
+  <button onclick="combineArrays()">Combine Arrays</button>
+
+  <h2>Combined Array:</h2>
+  <p id="result"></p>
+
+  <script>
+    function combineArrays() {
+      // Get input values
+      const array1 = document.getElementById('array1').value.split(',').map(item => item.trim());
+      const array2 = document.getElementById('array2').value.split(',').map(item => item.trim());
+
+      // Combine arrays using push
+      array2.forEach(item => array1.push(item));
+
+      // Display the result
+      document.getElementById('result').innerText = `Combined Array: [${array1.join(', ')}]`;
+    }
+  </script>
+</body>
+</html>

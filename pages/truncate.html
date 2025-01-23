@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Truncate String with Ellipsis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Truncate String with Ellipsis</h1>
+
+  <label for="inputString">Enter a string:</label>
+  <input type="text" id="inputString" placeholder="Type your string here..." style="width: 300px;">
+  <br>
+
+  <label for="truncateLength">Enter maximum length:</label>
+  <input type="number" id="truncateLength" placeholder="Enter length (e.g., 10)" style="width: 100px;">
+  <br><br>
+
+  <button onclick="truncateString()">Truncate</button>
+
+  <div id="result"></div>
+
+  <script>
+    function truncateString() {
+      // // Get the input string and the truncate length
+      // const inputString = document.getElementById('inputString').value.trim();
+      // const maxLength = parseInt(document.getElementById('truncateLength').value);
+
+      // // Validate the maximum length input
+      // if (isNaN(maxLength) || maxLength <= 0) {
+      //   document.getElementById('result').innerText = "Please enter a valid positive number for the length.";
+      //   return;
+      // }
+
+      // // Truncate the string and add ellipsis if needed
+      // let truncatedString = inputString;
+      // if (inputString.length > maxLength) {
+      //   truncatedString = inputString.slice(0, maxLength) + '....';
+      // }
+      // if(str.length>length){
+      //   return '...'+ str.slice(0,length);
+      // }
+      // else{
+      //   return str;
+      // }
+    
+
+      // Display the result
+    //   document.getElementById('result').innerText = `Truncated String: "${truncatedString}"`;
+    //
+    function truncateString() {
+  // Get the input string and the truncate length
+  const inputString = document.getElementById('inputString').value.trim();
+  const maxLength = parseInt(document.getElementById('truncateLength').value);
+
+  // Validate the maximum length input
+  if (isNaN(maxLength) || maxLength <= 0) {
+    document.getElementById('result').innerText = "Please enter a valid positive number for the length.";
+    return;
+  }
+
+  // Truncate the string and add ellipsis at the beginning if needed
+  let truncatedString = inputString;
+  if (inputString.length > maxLength) {
+    truncatedString = '....' + inputString.slice(-maxLength);
+  }
+
+  // Display the result
+  document.getElementById('result').innerText = truncatedString;
+}
+  </script>
+</body>
+</html>

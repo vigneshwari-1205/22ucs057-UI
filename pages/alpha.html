@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sort Strings Alphabetically</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button, textarea {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sort Strings Alphabetically (Ignoring Case)</h1>
+
+  <label for="inputStrings">Enter strings (one per line):</label><br>
+  <textarea id="inputStrings" placeholder="Enter each string on a new line..." rows="6" cols="40"></textarea>
+  <br><br>
+
+  <button onclick="sortStrings()">Sort Strings</button>
+
+  <div id="result"></div>
+
+  <script>
+    function sortStrings() {
+      // Get the input strings
+      const inputStrings = document.getElementById('inputStrings').value.trim();
+
+      // Check if input is empty
+      if (!inputStrings) {
+        document.getElementById('result').innerText = "Please enter some strings to sort.";
+        return;
+      }
+
+      // Split the input into an array of strings (based on new lines)
+      const stringArray = inputStrings.split('\n');
+
+      // Sort the array alphabetically, ignoring case
+      stringArray.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+
+      // Display the sorted strings
+      document.getElementById('result').innerText = `Sorted Strings:\n${stringArray.join('\n')}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+.container-fluid{
+    background-color: black;
+}
+.px{
+    padding-left: 70%;
+}
+.bg{
+    background-color: rgb(190, 243, 129);
+}
+.pad{
+    padding-left:50%;
+}
+
+.carousel-item {
+    height: 100vh; /* Set the height to fill the viewport */
+    width: 100%; /* Ensure the image spans the full width */
+    object-fit: contain; /* Ensures the full image is visible without cropping */
+}
+.carousel-inner img {
+    width: 100%; /* Ensure image spans the width of the carousel */
+    height: auto; /* Maintain the aspect ratio */
+    image-rendering: auto; /* Enable high-quality rendering */
+}
+
+/* Optional: Limit the height of the carousel */
+.carousel {
+    max-height: 600px; /* Set a maximum height */
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Responsive adjustment for smaller devices */
+@media (max-width: 768px) {
+    .carousel {
+        max-height: 400px; /* Reduce height for mobile */
+    }
+}
+
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.container my-5{
+    background-color: blueviolet;
+}
+.card-img-top {
+    height: 200px; /* Set a fixed height for images */
+    width: 100%; /* Ensure the image spans the width of the card */
+    object-fit: cover; /* Crop and center the image to fit the dimensions */
+}
+
+/* Ensure consistent alignment for card content */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Make sure the body takes up the full height for equal cards */
+}
+
+.card-title {
+    font-size: 1.25rem; /* Consistent font size for titles */
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    flex-grow: 1; /* Push the button to the bottom */
+}
+
+.btn {
+    margin-top: 1rem; /* Add space between content and button */
+}
